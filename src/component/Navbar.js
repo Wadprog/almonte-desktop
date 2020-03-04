@@ -44,7 +44,7 @@ const Navbar = ({ isAuthenticated, logout }) => {
     </ul>
   )
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light mb-0 fixed-top">
+    <nav className="navbar  navbar-light bg-light mb-0 fixed-top">
       <div className="container">
         <Link className="navbar-brand bg-light px-5" to="/">
           <img className="Logo" alt="Logo" src={Logo} />
@@ -60,7 +60,7 @@ const Navbar = ({ isAuthenticated, logout }) => {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className=" " >
           {isAuthenticated ? authLink : guessLink}
         </div>
       </div>

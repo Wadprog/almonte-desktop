@@ -23,18 +23,18 @@ export const login = ({ name, password }) => async dispatch => {
 	};
 	const body = JSON.stringify({ name, password });
 	try {
-		const res = await axios.post('178.128.144.72:6000/api/auth', body, config);
-		console.log(res);
+		const res = await axios.post('http://178.128.144.72/api/auth', body, config);
+		console.log(`we logged in data ${res}`);
 		dispatch({
 			type: LOG_IN_SUCCESS,
 			payload: res.data
 		});
 	} catch (error) {
-		console.log(` Error registering ${error}`);
-		const errors = error.response.data.errors;
-		if (errors) {
+		console.log(` Error login in ${error}`);
+		//const errors = error.response.data.errors;
+		/*if (errors) {
 			errors.forEach(err => dispatch(setAlert(err.msg, 'danger')));
-		}
+		}*/
 		dispatch({
 			type: LOG_IN_FAIL
 		});
@@ -44,7 +44,7 @@ export const login = ({ name, password }) => async dispatch => {
 export const loadUser = () => async dispatch => {
 	if (localStorage.token) setAuthToken(localStorage.token);
 	try {
-		const res = await axios.get('178.128.144.72:6000/api/auth');
+		const res = await axios.get('http://178.128.144.72/api/auth');
 		dispatch({
 			type: USER_LOADED,
 			payload: res.data
@@ -63,7 +63,7 @@ export const register = ({ name, password }) => async dispatch => {
 	};
 	const body = JSON.stringify({ name, password });
 	try {
-		const res = await axios.post('178.128.144.72:6000/api/user', body, config);
+		const res = await axios.post('http://178.128.144.72/api/user', body, config);
 		console.log(res);
 		dispatch({
 			type: REGISTER_SUCCESS,
