@@ -24,7 +24,7 @@ export const loadProfiles = () => async dispatch => {
 		type: PROFILE_FETCH_REQUEST
 	});
 	try {
-		const res = await axios.get('/api/profile');
+		const res = await axios.get('178.128.144.72:6000/api/profile');
 		dispatch({
 			type: PROFILE_FETCH_SUCCESS,
 			payload: res.data
@@ -47,7 +47,7 @@ export const registerClient = formData => async dispatch => {
 		type: PROFILE_SAVE_REQUEST
 	});
 	try {
-		const res = await axios.post('api/profile', body, config);
+		const res = await axios.post('178.128.144.72:6000/api/profile', body, config);
 		dispatch({ type: PROFILE_SAVE_SUCCESS });
 		dispatch(setAlert('Success', 'success'));
 		dispatch(loadProfiles());
